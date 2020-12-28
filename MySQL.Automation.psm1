@@ -34,15 +34,6 @@ Catch
     Write-Host -ForegroundColor Red $_.Exception.Message
 }
 
-Try
-{
-
-}
-Catch
-{
-    Write-Host -ForegroundColor Red $_.Exception.Message
-}
-
 Function ConvertTo-MySQL.Automation.DATETIME {
     Param
     (
