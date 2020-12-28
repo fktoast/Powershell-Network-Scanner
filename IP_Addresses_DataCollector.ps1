@@ -1,7 +1,7 @@
-﻿Import-Module C:\Automation\SQL.Automation.psm1
+﻿Import-Module C:\Powershell-Network-Scanner-main\SQL.Automation.psm1
 $Teams_Webhook = "https://outlook.office.com/webhook/xxxxxxxxx/IncomingWebhook/xxxxxxxxx"
 $Confluence_URI = "http://192.168.1.8:8090/x/AAAAA"
-$IP_Network = "192.168.1"
+$IP_Network = "192.168.7"
 
 $IP_Subnet = $null
 $IP_Subnet = @(Get-SQL.Automation.Records -Query "
