@@ -301,41 +301,6 @@ Function Set-MySQL.Automation.Record
     }
 }
 
-Function Remove-MySQL.Automation.Records
-{
-    Param ($PrimaryKey,$Table)
-    <#
-    DynamicParam
-    {
-        $ParameterName = "Table"
-        $RuntimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-        $AttributeCollection = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
-        $ParameterAttribute = New-Object System.Management.Automation.ParameterAttribute
-        $ParameterAttribute.Mandatory = $true
-        $ParameterAttribute.Position = 0
-        $AttributeCollection.Add($ParameterAttribute)
-        $ValidateSetAttribute = New-Object System.Management.Automation.ValidateSetAttribute($Global:MySQL_Automation_Tables)
-        $AttributeCollection.Add($ValidateSetAttribute)
-        $RuntimeParameter = New-Object System.Management.Automation.RuntimeDefinedParameter($ParameterName, [string], $AttributeCollection)
-        $RuntimeParameterDictionary.Add($ParameterName, $RuntimeParameter)
-        return $RuntimeParameterDictionary
-    }
-
-    Begin
-    {
-        $Table = $PsBoundParameters["Table"]
-        Write-Verbose -Message "Using $Table"        
-    }#>
-
-    Process
-    {
-        $cmd = New-Object MySql.Data.MySqlClient.MySqlCommand
-        $cmd.Connection = $Connection
-        $cmd.CommandText = "DELETE FROM $Table WHERE PrimaryKey='$PrimaryKey'"
-        $cmd.ExecuteNonQuery() 
-    }
-}
-
 Function New-MySQL.Automation.Record
 {
     Param
